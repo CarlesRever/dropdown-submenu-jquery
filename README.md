@@ -282,7 +282,7 @@ If you want to load also the default skin, change the scope class in your skin f
 
 ## About Dropdown Submenu Plugin
 
-As the Fish and Ships shipping plugin for WooCommerce grew in options, the interface started to become messy.
+As the Fish and Ships shipping plugin for WooCommerce (https://www.wp-centrics.com) grew in options, the interface started to become messy.
 
 We sorted the selection options into groups, but the combo-box was still too long. I couldn't find any jQuery-based option that solved this problem, so I decided to write my own code.
 
