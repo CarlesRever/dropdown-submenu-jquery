@@ -1,0 +1,377 @@
+/*----------------------------------------------------------------------------------------------------
+	1. Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com  
+----------------------------------------------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, main, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+strong {
+    font-weight: 700;
+}
+textarea {
+	overflow:auto;
+}
+input,
+textarea,
+button {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-appearance: none;
+	border-radius:0;
+	border:0;
+}
+textarea {
+	resize: none;
+}
+textarea:focus, input:focus {
+	outline: 0;
+}
+small {
+	font-size:0.75em;
+}
+
+/*----------------------------------------------------------------------------------------------------
+	Normalization
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+body,
+input,
+textarea {
+	background:#fff;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+    font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 14px;
+	line-height: 1.2em;
+	font-weight: 400;
+	color:#666;
+}
+h1,h2,h3,h4,h5,h6,p, li {
+	padding: 0;
+	margin: 0 1em 1em;
+	line-height: 1.4em;
+}
+a {
+	text-decoration:none;
+	color:#2295e3;
+}
+a:hover {
+	text-decoration:underline;
+	color:#000;
+}
+input[type=checkbox] {
+	height:auto;
+	width: auto;
+	-webkit-appearance:checkbox;
+}
+sup {
+	font-size:0.6em;
+	vertical-align:0.3em;
+}
+input[type="checkbox"] {
+    accent-color: #666;
+}
+
+/*----------------------------------------------------------------------------------------------------
+	Common Styles
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	background: linear-gradient(-180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.03) 100%);
+    text-align: center;
+}
+h1, h2, .like_h2, h3, .like_h3 {
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+	color:#2295e3;
+    margin: 1em 1em 0.5em;
+}
+.like_h2,
+h2 {
+	margin-top: 2em;
+	margin-bottom: 1em;
+    font-size: 32px; 
+}
+.like_h3,
+h3 {
+    font-size: 24px; 
+}
+.gray_section .like_h4,
+.like_h4,
+h4 {
+	font-weight: bold;
+	color: #2295e3;
+	font-size: 1.1em;
+	margin-top: 2em;
+}
+
+@media only screen and (max-width: 1100px) {
+	h1 {
+		font-size: 5.4vw;
+	}
+}
+@media only screen and (max-width: 880px) {
+	.like_h2,
+	h2 {
+		font-size: 3.7vw;
+	}
+}
+@media only screen and (max-width: 660px) {
+	.like_h3,
+	h3 {
+		font-size: 3.7vw;
+	}
+}
+@media only screen and (max-width: 500px) {
+	h1 {
+		font-size: 26px;
+	}
+	.like_h2,
+	h2,
+	.like_h3,
+	h3 {
+		font-size: 18px;
+	}
+}
+
+ul {
+    font-size: 1.2em;
+    list-style: disc outside;
+    max-width: 500px;
+    padding: 0 5vw;
+    margin: auto;
+    text-align: left;
+	box-sizing: content-box;
+}
+li {
+    margin-bottom: 0.5em;
+}
+
+/*----------------------------------------------------------------------------------------------------
+	Demo Styles
+----------------------------------------------------------------------------------------------------*/
+
+.gray_section {
+    background: #eee;
+    padding: 1px 0 3.5em;
+    color: #000;
+    margin: 4em 0;
+}
+    .gray_section p {
+        color: #000;
+    }
+    .gray_section p.like_h2 {
+    	color:#2295e3;    
+    }
+
+.documentation {
+    max-width: 600px;
+    padding: 0 5vw;
+    margin: auto;
+    text-align: left;
+	box-sizing: content-box;
+}
+	.documentation code {
+		width: 570px;
+		max-width: 100%;
+	}
+.demo1.dropdown-submenu-wrapper {
+    width: 500px !important;
+    display: flex;
+    border:  #aaa 5px dashed;
+    margin: auto;
+    text-align: left;
+	box-sizing: border-box;
+}
+   	.demo1.dropdown-submenu-wrapper.is-hidden .dropdown-field > * {
+		display: none;
+	}
+    .demo1 .dropdown-field {
+        border-left: #aaa 5px dashed;
+    }
+    .demo1 .dropdown-field::before,
+    .demo1 .dropdown-submenu-hidden::before {
+        content: 'Tuned submenu dropdown:';
+        display: block;
+        margin-bottom: 10px;
+        margin-top: -10px;
+    }
+    .demo1 .dropdown-submenu-hidden::before {
+        content: 'Native HTML select element:';
+    }
+
+    .demo1.dropdown-submenu-wrapper.fits-well > div {
+        width: 240px !important;
+		padding: 20px !important;
+        box-sizing: border-box;
+    }
+    .demo1.dropdown-submenu-wrapper.fits-well .dropdown-submenu-hidden {
+
+		clip: unset !important;
+		height: auto !important;
+		overflow: visible !important;
+		position: static !important;
+	}
+	
+	@media only screen and (max-width: 660px) {
+		.demo1.dropdown-submenu-wrapper {
+			flex-direction: column;
+		}
+		.demo1.dropdown-submenu-wrapper {
+			width: 250px !important;
+		}
+		.demo1 .dropdown-field {
+			border-top: #aaa 5px dashed;
+			border-left: 0;
+		}
+	}
+	@media only screen and (max-width: 375px) {
+		.demo1.dropdown-submenu-wrapper {
+			margin-left: 10px;
+		}
+		.demo1.dropdown-submenu-wrapper.fits-well > div {
+			padding: 20px 10px 10px !important;
+		}
+	}
+
+	.demo1 .css_tune_1 {
+		color: #00ac1c;
+		background: #eaf2eb;
+	}
+	.demo1 .css_tune_1.accent-hover {
+		color: #fff;
+		background: #1e90ff;
+	}
+
+
+button {
+    background: #fff;
+    border: 1px #aaa solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+    button:hover {
+        background: #ddd;
+    }
+
+    button.sel {
+        background: #2295e3;
+        border-color: #2295e3;
+        color: #fff;
+    }
+
+select {
+    font-size: 14px;
+    padding: 5px;
+    min-width: 150px;
+}
+select.error,
+.dropdown-field.error .dropdown-field-watch {
+	border: #f00 1px solid;
+	background: #ffdbdf;
+}
+
+code {
+    display: block;
+    width: 700px;
+    max-width: 90vw;
+    padding: 0 1.5vw;
+    margin: auto;
+    text-align: left;
+    background: #ddd;
+    overflow: auto;
+    margin-bottom: 2em;
+    padding-bottom: 1.5em;
+}
+	code,
+	.code {
+		color: #000;
+		font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		font-size: 14px;
+		direction: ltr;
+		text-align: left;
+		white-space: pre;
+		word-spacing: normal;
+		word-break: normal;
+		line-height: 1.5;
+
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+
+		-webkit-hyphens: none;
+		-moz-hyphens: none;
+		-ms-hyphens: none;
+		hyphens: none;
+	}
+
+    code .comment {
+        color: #888;
+    }
+	.code {
+		background: rgba(0,0,0,0.1);
+		padding: 0 5px;
+	}
+.demo_absolute {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255,255,255,0.9);
+	padding: 15px;
+	box-shadow: rgba(0,0,0,0.3) 0 0 5px;
+}
+	.dropdown_buttons a {
+		margin: 0 10px;
+		display: inline-block;
+		background: #999;
+		color: #fff;
+		padding: 10px 20px;
+		border-radius: 30px;
+	}
+	.dropdown_buttons a:hover {
+		background:	#2295e3;
+		text-decoration: none;
+	}

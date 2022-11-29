@@ -1,0 +1,116 @@
+/**
+ * Dropdown Submenu Plugin for jQuery
+ *
+ * @version 1.2
+ * https://www.carlesrever.com/dropdown-submenu-jquery
+ *
+ * Default skin styles. You can replace it entirely for your project, 
+ * keeping the functionality of engine CSS file (isolated). 
+ * 
+ * You will find this styles plus engine styles in the dropdown-submenu-dist.css file.
+ */
+.dropdown-submenu-skin {
+  color: #2c3338;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  /*
+	.dropdown-selected,
+	:hover > .dropdown-selected:hover,
+	.dropdown-main-item.dropdown-no-childs:hover,
+	.dropdown-submenu-item:hover {
+		background-color: @accentBgColor;
+		color: @accentColor;
+	}
+	:hover > .dropdown-selected {
+		background-color: @bgColor;
+		color: @color;
+	}
+	*/
+}
+.dropdown-submenu-skin,
+.dropdown-submenu-skin ul,
+.dropdown-submenu-skin li {
+  font-size: 14px;
+}
+.dropdown-submenu-skin .dropdown-main-list,
+.dropdown-submenu-skin .dropdown-submenu,
+.dropdown-submenu-skin .dropdown-field-watch {
+  border: 1px solid #8c8f94;
+  border-radius: 3px;
+  z-index: 1;
+  background: #ffffff;
+}
+.dropdown-submenu-skin .dropdown-main-list {
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 10px;
+}
+.dropdown-submenu-skin .dropdown-submenu {
+  box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 10px;
+}
+.dropdown-submenu-skin .dropdown-field-watch,
+.dropdown-submenu-skin .dropdown-main-item,
+.dropdown-submenu-skin .dropdown-submenu-item {
+  padding: 0 30px 0 10px;
+  line-height: 1.75em;
+}
+.dropdown-submenu-skin .dropdown-submenu-item {
+  padding-right: 10px;
+}
+.dropdown-submenu-skin .accent-hover {
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+.dropdown-submenu-skin :hover > .dropdown-ancestor-selected:hover,
+.dropdown-submenu-skin .dropdown-ancestor-selected,
+.dropdown-submenu-skin .dropdown-main-item.dropdown-has-childs:hover {
+  background-color: #eeeeee;
+}
+.dropdown-submenu-skin :hover > .dropdown-ancestor-selected {
+  background-color: #ffffff;
+}
+.dropdown-submenu-skin .dropdown-field-watch {
+  line-height: 2em;
+  box-shadow: none;
+  min-height: 30px;
+  max-width: 25rem;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  position: relative;
+}
+.dropdown-submenu-skin.is-disabled .dropdown-field-watch {
+  filter: brightness(125%);
+  background-color: #bfbfbf;
+}
+.dropdown-submenu-skin .dropdown-field-watch .dropdown-arrow,
+.dropdown-submenu-skin .dropdown-has-childs .dropdown-arrow {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1.5em;
+  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+.dropdown-submenu-skin.is-disabled .dropdown-field-watch .content {
+  opacity: 0.6;
+}
+.dropdown-submenu-skin.is-disabled .dropdown-field-watch .dropdown-arrow {
+  filter: brightness(125%);
+}
+.dropdown-submenu-skin .dropdown-has-childs {
+  position: relative;
+}
+.dropdown-submenu-skin .dropdown-has-childs .dropdown-arrow {
+  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%2C15l5-5L6%2C5l1-2l7%2C7l-7%2C7L6%2C15z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+.dropdown-submenu-skin .icon {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+.dropdown-submenu-skin .icon img {
+  max-height: 1em;
+  width: auto;
+}

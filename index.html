@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="wp-toolbar" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Dropdown Submenu Plugin for jQuery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link rel="stylesheet" href="dropdown-submenu-dist.css">
+	
+    <link rel="stylesheet" href="demo_stuff/demo.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+</head>
+<body>
+<main>
+    <h1>Turn the native HTML select <br>into a fancy Dropdown Submenu</h1>
+    <h2>Customise the native HTML select turning it into <br>a Dropdown Combo-box widh Floating Submenus:</h2>
+    
+	<div class="demo1_wrap gray_section">
+        <p class="like_h2">The live demo</p>
+        <p>You can see the native HTML select on left (forced to keep visible) and the Dropdown Submenu combo-box on right side:</p>    
+		<select id="select_1">
+			<option value="">Choose your OS:</option>
+			<optgroup label="PC">
+				<option value="mx-linux">MX Linux</option>
+				<option value="manjaro">Manjaro</option>
+				<option value="linux-mint">Linux Mint</option>
+				<option value="ubuntu" selected>Ubuntu</option>
+				<option value="w11">Windows 11</option>
+				<option value="w10">Windows 10</option>
+				<option value="w8">Windows 8</option>
+				<option value="w7">Windows 7</option>
+				<option value="ms-dos">MS-DOS</option>
+			</optgroup>
+			<optgroup label="Mac (icon)" data-icon="demo_stuff/mac.png">
+				<option value="big-sur">Big Sur</option>
+				<option value="catalina" class="css_tune_1">Catalina (CSS class)</option>
+				<option value="mojave">Mojave</option>
+				<option value="high-sierra" data-html-option="High%20%3Cstrong%3ESierra%3C%2Fstrong%3E%20%28HTML%29">High Sierra (HTML)</option>
+				<option value="sierra">Sierra</option>
+				<option value="el-capitan">El Capitan</option>
+				<option value="yosemite" data-icon="demo_stuff/mac.png">Yosemite (icon)</option>
+			</optgroup>
+			<option value="other">Other</option>
+		</select>
+
+        <h3>Actions on the native HTML select:</h3>
+		<p>This actions will be applied on the tuned select (synced):</p>
+        <p><button id="bt_hide">Hidden attr</button> <button id="bt_disable">Disabled attr</button> <button id="bt_change_sel">Change selection</button></p>
+		<p><button id="bt_load_content">Load new options (i.e. AJAX)</button> <button id="bt_simulate_validation">Error classname</button></p>
+
+        <h3>Actions on the dropdown submenu:</h3>
+        <p><button id="bt_destroy">Destroy</button> <button id="bt_set">Tune again</button></p>
+	</div>
+    <h2>Dropdown Submenu Combo-box Features:</h2>
+    <ul>
+        <li>Every group of options become a floating submenu</li>
+        <li>Hide the native HTML select &amp; creates a new tuned one out of the box</li>
+		<li>Fully compatible with your current scripts / other libraries</li>
+        <li>Full synchronization between the native and the tuned selects: Catch programmatically changes on native select and refresh the tuned one.</li>
+        <li>Easy style customisation.</li>
+    </ul>
+	<div class="gray_section">
+        <h2>Usage</h2>
+        <p><strong>1.</strong> You can simply add the minfied distribution CSS file, which includes engine + skin CSS:</p>
+<code>
+&lt;link rel="stylesheet" type="text/css" href="dropdown-submenu-dist.css"/&gt;
+</code>
+        <p>...or you can add only engine CSS, and your own version of skin CSS:</p>
+<code>
+&lt;link rel="stylesheet" type="text/css" href="dropdown-submenu-engine.css"/&gt;
+<span class="comment">&lt;!--&lt;link rel="stylesheet" type="text/css" href="dropdown-submenu-skin.css"/&gt;--&gt;</span>
+&lt;link rel="stylesheet" type="text/css" href="my-customized-dropdown-submenu-skin.css"/&gt;
+</code>
+        <p><strong>2.</strong> Add jQuery and the script file, just before close body tag:</p>
+<code>
+&lt;script src="https://code.jquery.com/jquery-3.6.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="dropdown-submenu.js"&gt;&lt;/script&gt;
+</code>
+        <p><strong>3.</strong> Tune your selects with me!</p>
+<code>
+$(document).ready(function() {
+    $( "select" ).dropdownSubmenu();
+}
+</code>
+
+    </div>
+    
+	<h2>HTML Attributes</h2>
+	<div class="documentation">
+		<p class="like_h4">data-html-option</p>
+		<p>Native HTML select doesn't support HTML into option tag, but you can set it, in this way:</p>
+<code>
+&lt;option value="high-sierra" data-html-option="High%20%3Cstrong%3ESierra%3C%2Fstrong%3E%20%28HTML%29"&gt;High Sierra (HTML)&lt;/option&gt;
+</code>
+		<p><strong>You must URL encode the HTML inside the attribute.</strong></p>
+		<p>- On <strong>PHP</strong> you can use the <span class="code">urlencode()</span> function.</p>
+		<p>- On <strong>ASP.net</strong> you can use the <span class="code">HttpUtility.UrlEncode()</span> function.</p>
+		<p>- On <strong>JavaScript</strong> you can use the <span class="code">encodeURI()</span> function.</p>
+		<p>- There is a few online tools to encode it easily</p>
+
+		<p class="like_h4" style="margin-top: 3em">data-icon</p>
+		<p>set a relative or absolute path to an image (better PNG), using this attribute:</p>
+<code>
+&lt;option value="yosemite" data-icon="demo_stuff/mac.png"&gt;Yosemite (icon)&lt;/option&gt;
+</code>
+		<p>...but you can set it also using a class and your own CSS styles (see next section) or through <span class="code">data-html-option</span> attribute (see previous one).</p>
+	</div>
+
+	<div class="gray_section">
+		<h2>Customise options through custom CSS class</h2>
+		<div class="documentation">
+			<p>Native HTML select support classes into option tag and optgroup tag, and Dropdown Submenu copies it to tuned select (see the <span class="code">copyOptionClasses</span> setting).</p>
+			<p>In our example:</p>
+<code>
+&lt;option value="catalina" class="css_tune_1"&gt;Catalina (CSS class)&lt;/option&gt;
+</code>
+		<p>Use the <strong>accent-hover</strong> class to set the rollover / selected style:</p>
+<code>
+	.demo1 .css_tune_1 {
+		color: #00ac1c;
+		background: #eaf2eb;
+	}
+	.demo1 .css_tune_1.accent-hover {
+		color: #fff;
+		background: #1e90ff;
+	}
+</code>
+		</div>
+	</div>
+	
+    <h2>Syncing settings</h2>
+	<div class="documentation">
+		<p>Here the way to set the settings:</p>
+<code>
+    $( ".demo1_wrap select" ).dropdownSubmenu({
+        watchChangeVal:  true,
+        customClass :    'demo1',
+		minScreenWidth:  0
+    });
+</code>
+        <p class="like_h4">watchDisabled</p>
+		<p><strong>Type</strong>: boolean</p>
+		<p><strong>Default</strong>: true</p>
+		<p>The "disabled" attribute on the native HTML select will be synced on the tuned select.</p>
+        
+		<p class="like_h4">watchHidden</p>
+		<p><strong>Type</strong>: boolean</p>
+		<p><strong>Default</strong>: true</p>
+		<p>The "hidden" attribute on the native HTML select will be synced on the tuned select (this script hides the select wrapping into layer), keeping it "visble".</p>
+		
+		<p class="like_h4">watchChangeVal</p>
+		<p><strong>Type</strong>: boolean</p>
+		<p><strong>Default</strong>: false</p>
+		<p>Programmatically changes on the selected option of the native HTML select doesn't trigger jQuery change event.</p>
+		<p>So if you need to listen this kind of change, set this option to true (will get a bit of performance)</p>
+		
+		<p class="like_h4">watchSelectClasses</p>
+		<p><strong>Type</strong>: boolean</p>
+		<p><strong>Default</strong>: true</p>
+		<p>The CSS classes on the native HTML select will be synced on the tuned select. Useful on form validations (error class will be applied).</p>
+
+	</div>
+    <h2>Other settings</h2>
+	<div class="documentation">
+	
+		<p class="like_h4">minScreenWidth</p>
+		<p><strong>Type</strong>: integer</p>
+		<p><strong>Default</strong>: 500</p>
+		<p>Acts as CSS breakpoint: When screen width is below this value, the native HTML select will remain visible and not tuned.</p>
+		<p>Most mobile devices manage by itself the native selects, and maybe the floating submenus goes out of screen.</p>
+		<p>On each window resize the selects will be updated.</p>
+		<p><strong>This feature can be de-activated setting it to 0.</strong></p>
+
+		<p class="like_h4">copyOptionClasses</p>
+		<p><strong>Type</strong>: boolean</p>
+		<p><strong>Default</strong>: true</p>
+		<p>Copy classes of the options (OPTION and OPTGROUP tag) to the tuned select (LI tags). Useful for CSS customisation.</p>
+
+		<p class="like_h4">tuneClass</p>
+		<p><strong>Type</strong>: string</p>
+		<p><strong>Default</strong>: dropdown-submenu-skin</p>
+		<p>Skin CSS will be applied through this class. Change it to set full customisation of look &amp; feel, without need to override any CSS skin class.</p>
+
+		<p class="like_h4">customClass</p>
+		<p><strong>Type</strong>: string</p>
+		<p><strong>Default</strong>: (empty)</p>
+		<p>Will add a custom class. Useful to customise the tuned selects, without writting/versionate all the skin classes. Useful also to keep distinct select styles, giving a distinct classname to each.</p>
+
+		<p class="like_h4">wrapClass</p>
+		<p><strong>Type</strong>: string</p>
+		<p><strong>Default</strong>: dropdown-submenu-wrapper</p>
+		<p>Wrap for everything, engine CSS will be applied through this class. You only should change it if you want to transverse deeply the CSS engine styles and you know what you're doing.</p>
+	</div>
+	<div class="gray_section">
+		<h2>Actions</h2>
+		<div class="documentation">
+		<p>Here the way to call the actions, on previously tuned select:</p>
+<code>
+    $( ".demo1_wrap select" ).dropdownSubmenu('destroy');
+</code>
+			<p class="like_h4">refresh</p>
+			<p>Will restart/refresh the tuned select, based on the native HTML select. Unnecesary if you keep the synced settings.</p>
+
+			<p class="like_h4">refresh-width</p>
+			<p>Will set again the width of the tuned select, based on the native HTML select width.</p>
+
+			<p class="like_h4">destroy</p>
+			<p>Remove the tuned select, keeping the original HTML select untouched and visible.</p>
+			<p>After that, you can set it again in the same way: <span class="code">$("select").dropdownSubmenu();</span>.</p>
+		</div>
+	</div>
+	<h2>How to... Ajax</h2>
+	<div class="documentation">
+		<p>Simply replace the options on the native HTML select, and this script will do the rest :)</p>
+		<p class="like_h4">What about if my script delete the native select and create a new one?</p>
+		<p>In this case, you must set it again, in the same way: <span class="code">$("select").dropdownSubmenu();</span>.</p>
+	</div>
+
+	<h2>Check if Dropdown Submenu script is loaded</h2>
+	<div class="documentation">
+		<p>As any other jQuery plugin:</p>
+<code>
+	$(document).ready(function() {
+
+		if ( $.fn.dropdownSubmenu ) {
+			console.log('loaded!');
+		} else {
+			console.log('not loaded!');
+		}
+	});
+</code>
+	</div>
+	<div class="gray_section">
+		<h2>Customise: CSS override</h2>
+		<div class="documentation">
+			<p>If you want to override the CSS for all the tuned selects, use the class <span class="code">.dropdown-submenu-skin</span></p>
+			<p>But if you want to override only some of the tuned selects, use the setting <span class="code">customClass</span> to set your own class as scope.</p>
+<code>
+.dropdown-submenu-skin {
+	font-family: times, serif;
+}
+.dropdown-submenu-skin .dropdown-field-watch {
+	border-color: green;
+}
+.dropdown-submenu-skin .dropdown-main-list {
+	border-color: red;
+}
+.dropdown-submenu-skin .dropdown-submenu {
+	border-color: blue;
+}
+.dropdown-submenu-skin .accent-hover {
+	background: green;
+}
+</code>
+		</div>
+	</div>
+	
+	<h2>Full skin replacement</h2>
+	<div class="documentation">
+		<p><strong>Please, read first the upper "Usage" section.</strong></p>
+		<p>You can copy the file <span class="code">dropdown-submenu-skin.less</span> into your project folder, and change the upper variables, or whatever:</p>		
+<code>
+@color: #2c3338;
+@bgColor: #fff;
+
+@accentColor: #fff;
+@accentBgColor: #1e90ff;
+
+@accentBgColorRemember: lighten(@accentBgColor, 40%);
+@fatherBgColor: #eee;
+
+@fontFamily: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+@fontSize: 14px;
+
+.dropdown-submenu-skin {
+</code>
+		<p>If you want to load also the default skin, change the scope class in your skin file: <span class="code">.dropdown-submenu-skin</span> for any other, and then set this new class in the <span class="code">customClass</span> setting (read about in settings section).</p>
+	</div>
+	<div class="gray_section">
+		<h2>About Dropdown Submenu Plugin</h2>
+		<div class="documentation">
+			<p>As the <a href="https://www.wp-centrics.com/" target="_blank">Fish and Ships shipping plugin for WooCommerce</a> grew in options, the interface started to become messy.</p>
+			<p>We sorted the selection options into groups, but the combo-box was still too long. I couldn't find any jQuery-based option that solved this problem, so I decided to write my own code.</p>
+			<p>After that, I decided to release it as a jQuery plugin... enjoy! ;)</p> 
+		</div>
+	</div>
+</main>
+<footer class="demo_absolute">
+	<div class="dropdown_buttons">
+		<a href="#">Download</a>
+		<a href="#">GitHub</a>
+	</div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="dropdown-submenu.min.js"></script>
+	<script src="demo_stuff/demo.js"></script>
+
+</body>
+</html>
